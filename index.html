@@ -125,6 +125,56 @@
 .case-mini button{margin-top:14px;border:1px solid rgba(255,255,255,.14);background:transparent;color:#d7e3f4;border-radius:9px;padding:7px 9px;font-size:8px;font-weight:900;cursor:pointer}
 @media(max-width:900px){.proof-grid,.evidence-wrap{grid-template-columns:1fr}.proof-arc{grid-template-columns:1fr 1fr}.case-row{grid-template-columns:1fr}}
 @media(max-width:620px){.proof-metrics{grid-template-columns:1fr 1fr}.proof-lead h3{font-size:31px}.proof-arc{grid-template-columns:1fr}.evidence-shot img,.evidence-shot{min-height:260px}}
+
+/* Public-data analyst workflow refresh */
+.analyst-workflow{background:#061226;color:#f5f8ff;padding:120px 0 105px;position:relative;overflow:hidden}
+.analyst-workflow .container{position:relative;z-index:1}
+.analyst-workflow .motion-head p{color:#91a1b9}
+.workflow-lab{border:1px solid #1d314b;border-radius:28px;background:linear-gradient(180deg,#081729,#050c16);overflow:hidden}
+.workflow-top{display:flex;justify-content:space-between;gap:30px;padding:28px 30px;border-bottom:1px solid #1d314b}
+.workflow-source{font:900 9px/1.3 monospace;letter-spacing:.14em;color:#70a8ff}
+.workflow-top h3{font-size:clamp(26px,3vw,40px);letter-spacing:-.045em;margin:12px 0 8px}
+.workflow-top p{color:#9aabc1;font-size:12px;margin:0;max-width:700px}
+.workflow-source-link{align-self:flex-start;border:1px solid #2a4567;border-radius:999px;padding:9px 12px;font-size:10px;font-weight:900;color:#dce8f8;white-space:nowrap}
+.workflow-source-link:hover{border-color:#70a8ff;color:#70a8ff}
+.workflow-grid{display:grid;grid-template-columns:330px 1fr;min-height:430px}
+.workflow-steps{padding:18px;border-right:1px solid #1d314b}
+.workflow-step{width:100%;display:grid;grid-template-columns:34px 1fr;gap:2px 10px;text-align:left;border:1px solid transparent;background:transparent;color:#8ea0b9;border-radius:14px;padding:14px;margin-bottom:6px;cursor:pointer}
+.workflow-step span{grid-row:1/3;font:900 9px monospace;color:#50627a;padding-top:3px}
+.workflow-step b{font-size:12px;color:#dce7f5}
+.workflow-step small{font-size:9px;color:#74869e}
+.workflow-step.active{background:rgba(112,168,255,.08);border-color:rgba(112,168,255,.3)}
+.workflow-step.active span,.workflow-step.active b{color:#70a8ff}
+.workflow-detail{padding:46px 50px;display:flex;flex-direction:column;justify-content:center}
+.workflow-index{font:900 9px monospace;letter-spacing:.15em;color:#70a8ff}
+.workflow-detail h4{font-size:clamp(30px,4vw,52px);line-height:.98;letter-spacing:-.06em;margin:12px 0 16px;max-width:700px}
+.workflow-detail p{font-size:13px;color:#a5b4c9;max-width:650px;margin:0}
+.workflow-artifact{margin-top:30px;border:1px solid #203651;border-radius:16px;padding:15px;background:rgba(255,255,255,.025)}
+.artifact-label{font:900 8px monospace;letter-spacing:.14em;color:#71849d}
+.artifact-body{font-size:12px;color:#edf4ff;margin-top:8px}
+.workflow-stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.workflow-stack span{font:800 8px monospace;color:#90a5bf;border:1px solid #263b57;border-radius:999px;padding:6px 8px}
+.quality-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:15px}
+.quality-card,.public-intro,.public-work{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:25px}
+.quality-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.quality-top h3{font-size:42px;letter-spacing:-.06em;margin:8px 0}
+.quality-card>p{font-size:11px;color:var(--muted)}
+.quality-checks{display:grid;gap:8px;margin-top:24px}
+.quality-checks span{border:1px solid var(--line);border-radius:10px;padding:10px;font-size:10px}
+.public-case{background:var(--bg)}
+.public-case-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:15px}
+.source-badge{font:900 9px monospace;letter-spacing:.15em;color:var(--blue)}
+.public-intro h3{font-size:38px;letter-spacing:-.055em;margin:12px 0}
+.public-intro p{font-size:12px;color:var(--muted);margin:0 0 22px}
+.public-work{padding:0}
+.public-row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.public-row:last-child{border-bottom:0}
+.public-row span{font:900 8px monospace;letter-spacing:.12em;color:var(--blue)}
+.public-row b{font-size:11px;line-height:1.55}
+.public-footer{display:flex;justify-content:space-between;gap:20px;margin-top:12px;padding:14px 2px;color:var(--muted);font-size:9px}
+.public-footer a{color:var(--blue);font-weight:850}
+@media(max-width:900px){.workflow-grid,.quality-layout,.public-case-grid{grid-template-columns:1fr}.workflow-steps{border-right:0;border-bottom:1px solid #1d314b;display:grid;grid-template-columns:1fr 1fr}.workflow-detail{padding:35px 28px}.public-row{grid-template-columns:1fr}.public-footer{display:block}.public-footer a{display:block;margin-top:8px}}
+@media(max-width:620px){.workflow-top{display:block;padding:22px}.workflow-source-link{display:inline-block;margin-top:15px}.workflow-steps{display:block}.workflow-step{margin-bottom:5px}.workflow-detail h4{font-size:34px}.quality-top{display:block}.quality-top .run{margin-top:10px}.public-intro h3{font-size:32px}}
 </style>
 </head>
 <body><a href="#command" style="position:absolute;left:-9999px;top:auto" onfocus="this.style.left='12px'">Skip to intelligence interface</a>
@@ -132,7 +182,44 @@
 <nav class="nav"><div class="container navin"><a class="brand" href="#top">VK<span>.</span></a><div class="links"><a href="#lab">Analytics Lab</a><a href="#proof">Proof</a><a href="#sql">SQL Lab</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div><div class="nav-actions"><button class="pill" id="recruiterBtn">Recruiter View</button><button class="iconbtn" id="themeBtn">◐</button><button class="iconbtn mobile" id="paletteBtn">⌘K</button></div></div></nav>
 <main id="top">
 <section class="container v7hero" id="home"><div class="v7grid"><div class="reveal"><div class="eyebrow">VAMSHI INTELLIGENCE · DATA / AI / BI</div><h1 class="v7title">DATA <em>→</em><br><span class="outline">INSIGHT</span> <em>→</em><br>INTELLIGENCE</h1><p class="v7sub"><strong>Vamshi Krishna Keerthi</strong> builds analytical workflows that move from raw records to validated decisions — combining SQL, Python, BI, machine learning and Generative AI.</p><div class="actions"><a class="btn primary" href="#command">Enter the Intelligence Interface ↗</a><button class="btn secondary" id="askHero">Ask Vamshi ✦</button><a class="btn secondary" href="./assets/resume.pdf" target="_blank">Resume ↗</a></div><div class="intelbar"><span class="syschip"><i class="sysdot"></i> SYSTEM ONLINE</span><span class="syschip">30K+ HEALTHCARE</span><span class="syschip">250K+ BANKING</span><span class="syschip">5+ GENAI</span></div><div class="signal-rail" aria-label="Portfolio signal summary"><div class="signal-card"><div class="signal-top"><span>ANALYTICS</span><i class="signal-pulse"></i></div><strong class="signal-value">30K+ <span>healthcare records analyzed</span></strong></div><div class="signal-card"><div class="signal-top"><span>BUSINESS INTELLIGENCE</span><i class="signal-pulse"></i></div><strong class="signal-value">10+ <span>Power BI dashboards</span></strong></div><div class="signal-card"><div class="signal-top"><span>GENAI</span><i class="signal-pulse"></i></div><strong class="signal-value">8+ <span>AI use cases validated</span></strong></div></div></div><div class="v7stage reveal"><canvas id="dataCore" aria-label="Interactive 3D-style data core"></canvas><div class="core-label">3D DATA CORE <span>interactive</span></div><div class="orb"><div class="orbcore"><div><strong>VK</strong><span>analytics intelligence</span></div></div></div><div class="core-hud"><div class="core-readout"><b>LIVE</b><span>intelligence core</span><i></i></div></div><div class="core-metric cm1">SQL → BI<small>ANALYTICAL LAYER</small></div><div class="core-metric cm2">ML → RISK<small>MODEL SIGNALS</small></div><div class="core-metric cm3">LLM → CHECK<small>VALIDATED OUTPUT</small></div><div class="flowline fl1"></div><div class="flowline fl2"></div><div class="flowline fl3"></div><div class="flowline fl4"></div><button class="node n1" data-command="SQL Lab">SQL · VALIDATE</button><button class="node n2" data-command="Analytics Lab">BI · VISUALIZE</button><button class="node n3" data-command="AI Validation">ML · DETECT</button><button class="node n4" data-command="Projects">GENAI · EXPLAIN</button><button class="node n5" data-command="Experience">DATA · DECIDE</button><div class="hero-photo"><div class="hero-photo-frame"><img src="./assets/profile.jpeg" alt="Vamshi Krishna Keerthi in a brown suit" loading="eager"><span class="hero-photo-badge">PROFILE · HIGH RES</span></div><div class="hero-photo-meta"><strong>Vamshi Krishna Keerthi</strong><span>Data Analyst · Generative AI</span></div></div></div></div></section>
-<section class="motion-section" id="motion"><div class="container"><div class="motion-head reveal"><div><div class="kicker">Data motion lab</div><h2>Watch a question become an insight.</h2></div><p>A cinematic, interactive visualization of the analytical path: raw data → validation → modeling → AI → decision. No stock footage; every frame is generated in the browser.</p></div><div class="motion-card reveal"><canvas id="motionCanvas" aria-label="Animated data pipeline visualization"></canvas><div class="scanline"></div><div class="motion-stage-card"><div class="stage-index" id="motionIndex">01 · INGEST</div><b id="motionStageTitle">RAW DATA ENTERS</b><span id="motionStageText">Claims, transactions and operational records enter the analytical workflow.</span></div><div class="motion-progress"><i id="motionProgress"></i></div><div class="motion-caption"><span id="motionStage">01 · INGEST</span><b id="motionDetail">Raw records enter the analytical system.</b><span class="motion-live"><i></i> LIVE SIMULATION</span></div><div class="motion-controls"><button class="motion-dot active" data-step="0">01</button><button class="motion-dot" data-step="1">02</button><button class="motion-dot" data-step="2">03</button><button class="motion-dot" data-step="3">04</button><button class="motion-dot" data-step="4">05</button><button class="motion-dot" data-step="5">06</button><button class="motion-dot" data-step="6">07</button></div></div></div></section>
+<section class="motion-section analyst-workflow" id="motion">
+<div class="container">
+  <div class="motion-head reveal">
+    <div><div class="kicker">Interactive walkthrough · public data</div><h2>How a data analyst actually works.</h2></div>
+    <p>Follow one real-world public dataset from a business question to a stakeholder-ready answer. No fabricated KPIs, no employer data — just the analytical workflow.</p>
+  </div>
+  <div class="workflow-lab reveal">
+    <div class="workflow-top">
+      <div>
+        <span class="workflow-source">PUBLIC DATASET · NYC 311 SERVICE REQUESTS</span>
+        <h3>From a question to a decision.</h3>
+        <p>Example question: <b>“Which service-request patterns deserve attention, and what should we show a decision-maker?”</b></p>
+      </div>
+      <a class="workflow-source-link" href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9" target="_blank" rel="noopener">Open source ↗</a>
+    </div>
+    <div class="workflow-grid">
+      <div class="workflow-steps" role="tablist" aria-label="Data analyst workflow">
+        <button type="button" class="workflow-step active" data-workflow-step="0"><span>01</span><b>Frame the question</b><small>Define the business decision.</small></button>
+        <button type="button" class="workflow-step" data-workflow-step="1"><span>02</span><b>Understand the data</b><small>Inspect fields, grain and quality.</small></button>
+        <button type="button" class="workflow-step" data-workflow-step="2"><span>03</span><b>Clean & transform</b><small>Make the data analysis-ready.</small></button>
+        <button type="button" class="workflow-step" data-workflow-step="3"><span>04</span><b>Analyze</b><small>Use SQL/Python to find patterns.</small></button>
+        <button type="button" class="workflow-step" data-workflow-step="4"><span>05</span><b>Visualize</b><small>Turn findings into a clear story.</small></button>
+        <button type="button" class="workflow-step" data-workflow-step="5"><span>06</span><b>Recommend</b><small>Explain what the evidence means.</small></button>
+      </div>
+      <div class="workflow-detail" aria-live="polite">
+        <div class="workflow-index" id="workflowIndex">01 · FRAME</div>
+        <h4 id="workflowTitle">Start with the business question.</h4>
+        <p id="workflowText">An analyst does not start with a chart. First, define the decision the analysis needs to support, who will use it, and what “useful” looks like.</p>
+        <div class="workflow-artifact">
+          <div class="artifact-label">WHAT THE ANALYST PRODUCES</div>
+          <div class="artifact-body" id="workflowArtifact">Question · scope · KPI definitions · success criteria</div>
+        </div>
+        <div class="workflow-stack" id="workflowStack"><span>Business context</span><span>SQL</span><span>Python</span><span>Power BI / Tableau</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 <section class="section"><div class="container"><div class="section-head reveal"><div><div class="kicker">Scale of work</div><h2>Proof, not percentages.</h2></div><p>Resume-supported scale indicators are surfaced as evidence. The interactive demos below use synthetic data so the portfolio can be explored safely.</p></div><div class="stats reveal"><div class="stat"><div class="n">30K+</div><div class="l">Healthcare records analyzed</div></div><div class="stat"><div class="n">250K+</div><div class="l">Banking records assessed</div></div><div class="stat"><div class="n">10+</div><div class="l">Power BI dashboards</div></div><div class="stat"><div class="n">20+</div><div class="l">Tableau KPIs</div></div><div class="stat"><div class="n">5+</div><div class="l">GenAI / LLM workflows</div></div><div class="stat"><div class="n">6+</div><div class="l">ML models applied</div></div><div class="stat"><div class="n">8+</div><div class="l">AI use cases validated</div></div></div></div></section>
 <section class="section" id="command"><div class="container"><div class="section-head reveal"><div><div class="kicker">Personal intelligence interface</div><h2>Explore the system.</h2></div><p>This is the portfolio as a product: ask questions, inspect analytical workflows, and jump directly into the evidence.</p></div><div class="command-shell reveal"><div class="command-top"><div class="window-dots"><i></i><i></i><i></i></div><div class="command-title">vamshi-intelligence.local · secure portfolio simulation</div><div class="command-status"><i></i> SYSTEM ONLINE</div></div><div class="command-grid"><div class="command-nav"><button class="active" data-panel="agent">✦ Ask Vamshi</button><button data-panel="evidence">◈ Evidence</button><button data-panel="workflow">⌁ Workflow</button><button data-panel="terminal">$ Terminal</button></div><div class="command-main" id="commandMain"><div class="kicker" style="color:#70a8ff">PORTFOLIO COPILOT</div><h3>Ask about my work.</h3><p>Try a question below. This demo uses a curated local knowledge base derived from the portfolio content.</p><div class="agentbox"><input class="agentinput" id="agentInput" placeholder="e.g. How does Vamshi validate AI outputs?" autocomplete="off"><div class="suggestions"><button>What did he do at BCBS?</button><button>How does he validate AI?</button><button>Show his projects.</button><button>What are his core skills?</button></div><div class="agentresult" id="agentResult"></div></div><div class="command-metrics"><div class="command-metric"><b>30K+</b><span>Healthcare records</span></div><div class="command-metric"><b>250K+</b><span>Banking records</span></div><div class="command-metric"><b>10+</b><span>Power BI reports</span></div><div class="command-metric"><b>8+</b><span>AI use cases validated</span></div></div><div class="system-map"><div class="map-node active">DATA</div><div class="map-node active">SQL</div><div class="map-node active">ANALYTICS</div><div class="map-node active">AI / ML</div><div class="map-node active">DECISION</div></div></div></div></div></div></section>
 <section class="section"><div class="container"><div class="section-head reveal"><div><div class="kicker">Capability map</div><h2>What I actually do.</h2></div><p>Instead of generic skill bars, each capability is tied to the analytical work it enables.</p></div><div class="skill-grid"><article class="skill reveal"><div class="skillnum">01</div><h3>Data Analytics</h3><p>Turn raw records into structured analytical datasets and defensible findings.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">EDA</span><span class="tag">Data Quality</span></div></article><article class="skill reveal"><div class="skillnum">02</div><h3>Business Intelligence</h3><p>Translate metrics and business rules into dashboards people can act on.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">KPIs</span><span class="tag">Reporting</span></div></article><article class="skill reveal"><div class="skillnum">03</div><h3>Machine Learning</h3><p>Apply modeling patterns for segmentation, classification, anomaly detection and prediction.</p><div class="tags"><span class="tag">Classification</span><span class="tag">Segmentation</span><span class="tag">Anomaly Detection</span><span class="tag">Predictive Analysis</span></div></article><article class="skill reveal"><div class="skillnum">04</div><h3>Generative AI</h3><p>Use LLMs for analytical workflows while grounding outputs against source data and rules.</p><div class="tags"><span class="tag">LLMs</span><span class="tag">AI Validation</span><span class="tag">Natural Language</span><span class="tag">GenAI</span></div></article></div></div></section>
@@ -147,28 +234,76 @@
 <div class="proof-metrics reveal"><div class="proof-metric"><b>30K+</b><span>Healthcare records analyzed</span></div><div class="proof-metric"><b>250K+</b><span>Banking records analyzed</span></div><div class="proof-metric"><b>10+</b><span>Power BI reports</span></div><div class="proof-metric"><b>8+</b><span>AI use cases validated</span></div></div>
 </div></div></section>
 <section class="section dark" id="lab"><div class="container"><div class="section-head reveal"><div><div class="kicker">Live simulation</div><h2>Analytics Command Center.</h2></div><p>Click through synthetic healthcare, banking and AI-validation scenarios. These are independent portfolio simulations — not employer data.</p></div><div class="lab reveal"><div class="lab-main"><div class="tabs"><button class="tab active" data-lab="health">Healthcare</button><button class="tab" data-lab="bank">Banking</button><button class="tab" data-lab="ai">AI Validation</button></div><div id="labView"></div></div><aside class="lab-side"><div class="kicker">Data → decision pipeline</div><h3 style="margin:5px 0 17px;font-size:23px">Trust is a workflow.</h3><div class="pipeline"><div class="pipe"><b>01 · Source</b><span>records</span></div><div class="pipe"><b>02 · Prepare</b><span>clean / reconcile</span></div><div class="pipe"><b>03 · Analyze</b><span>SQL / Python</span></div><div class="pipe"><b>04 · Model</b><span>ML / LLM</span></div><div class="pipe"><b>05 · Validate</b><span>source / rules</span></div><div class="pipe"><b>06 · Communicate</b><span>BI / insight</span></div></div><div class="quality"><div class="quality-row"><span>Completeness</span><b>96%</b><div class="meter"><i style="width:96%"></i></div></div><div class="quality-row"><span>Consistency</span><b>93%</b><div class="meter"><i style="width:93%"></i></div></div><div class="quality-row"><span>Validation coverage</span><b>91%</b><div class="meter"><i style="width:91%"></i></div></div></div><div class="lab-note">Synthetic portfolio data is intentionally illustrative. No confidential employer information is represented.</div></aside></div></div></section>
-<section class="section" id="sql"><div class="container"><div class="section-head reveal"><div><div class="kicker">Code you can inspect</div><h2>SQL Lab.</h2></div><p>Choose a query pattern, run it, and inspect the simulated result set. This demonstrates analytical SQL patterns without requiring a database server.</p></div><div class="sql-layout reveal"><div class="sqlbox"><div class="kicker">Query console</div><div class="sqlpresets"><button class="sqlpreset ac<section class="section" id="dashboard"><div class="container"><div class="section-head reveal"><div><div class="kicker">Independent portfolio simulation · synthetic data</div><h2>Executive Analytics Dashboard.</h2></div><p>A Power BI-inspired healthcare operations dashboard built with synthetic data. It demonstrates KPI design, trend analysis, utilization segmentation, exception monitoring and stakeholder-ready storytelling. This is not employer data.</p></div><div class="exec-wrap reveal">
-<div class="exec-top"><div class="exec-brand"><div class="exec-mark">BI</div><div><div class="exec-title">Healthcare Operations Intelligence</div><div class="exec-sub">Executive overview · synthetic FY2026 dataset</div></div></div><div class="exec-controls"><span class="exec-filter">Region: All</span><span class="exec-filter">Product: All</span><span class="exec-select">Q4 FY2026 ▾</span></div></div>
-<div class="exec-kpis">
-<div class="exec-kpi"><div class="label">Total Claims</div><div class="value">18,742</div><div class="delta">▲ 12.8% vs prior period</div></div>
-<div class="exec-kpi"><div class="label">Allowed Amount</div><div class="value">$8.42M</div><div class="delta">▲ 7.4% vs prior period</div></div>
-<div class="exec-kpi"><div class="label">Avg. Cost / Claim</div><div class="value">$449</div><div class="delta warn">▲ 3.1% needs review</div></div>
-<div class="exec-kpi"><div class="label">Data Quality</div><div class="value">96.4%</div><div class="delta">▲ 1.8 pts after validation</div></div>
+<section class="section" id="sql">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">Code you can inspect</div><h2>SQL Lab.</h2></div><p>See the kind of questions an analyst turns into SQL: grouping, filtering, segmentation and data-quality checks.</p></div>
+  <div class="sql-layout reveal">
+    <div class="sqlbox">
+      <div class="kicker">Query pattern</div>
+      <div class="sqlpresets">
+        <button type="button" class="sqlpreset active" data-query="claims">Trend analysis</button>
+        <button type="button" class="sqlpreset" data-query="risk">Segmentation</button>
+        <button type="button" class="sqlpreset" data-query="quality">Data quality</button>
+      </div>
+      <pre class="code" id="sqlCode"></pre>
+      <button type="button" class="run" id="runSql">▶ Run query</button>
+      <div class="statusline" id="sqlStatus">Ready · click Run query to simulate execution</div>
+    </div>
+    <div class="resultbox">
+      <div class="kicker">Analyst output</div>
+      <div id="sqlResult"></div>
+      <div class="lab-note">The result table is a teaching simulation. The SQL patterns are representative of real analyst work; no employer data is shown.</div>
+    </div>
+  </div>
 </div>
-<div class="exec-grid">
-<div class="exec-panel"><div class="exec-panel-head"><div><h3>Claims volume & allowed amount</h3><span>Monthly trend · synthetic records</span></div><span>JAN — DEC</span></div>
-<svg class="exec-svg" viewBox="0 0 720 235" role="img" aria-label="Synthetic monthly claims trend"><g stroke="#1c3350" stroke-width="1"><line x1="45" y1="25" x2="700" y2="25"/><line x1="45" y1="80" x2="700" y2="80"/><line x1="45" y1="135" x2="700" y2="135"/><line x1="45" y1="190" x2="700" y2="190"/></g><g fill="#6f839d" font-size="9"><text x="8" y="28">20K</text><text x="8" y="83">15K</text><text x="8" y="138">10K</text><text x="16" y="193">5K</text></g><path d="M45 160 L105 151 L165 156 L225 131 L285 137 L345 116 L405 123 L465 91 L525 102 L585 69 L645 78 L700 51 L700 190 L45 190 Z" fill="rgba(73,200,216,.08)"/><polyline points="45,160 105,151 165,156 225,131 285,137 345,116 405,123 465,91 525,102 585,69 645,78 700,51" fill="none" stroke="#49c8d8" stroke-width="3"/><polyline points="45,174 105,166 165,169 225,158 285,153 345,145 405,141 465,128 525,121 585,109 645,99 700,92" fill="none" stroke="#f2c94c" stroke-width="2" stroke-dasharray="5 4"/><g fill="#8ea1bc" font-size="8"><text x="42" y="208">JAN</text><text x="160" y="208">MAR</text><text x="278" y="208">MAY</text><text x="396" y="208">JUL</text><text x="514" y="208">SEP</text><text x="632" y="208">NOV</text></g></svg><div class="exec-legend"><span><i class="legend-dot" style="background:#49c8d8"></i>Claims volume</span><span><i class="legend-dot" style="background:#f2c94c"></i>Cost trend index</span></div></div>
-<div class="exec-panel"><div class="exec-panel-head"><div><h3>Utilization mix</h3><span>Claim distribution</span></div><span>18.7K</span></div><div class="exec-donut"><div class="exec-ring"><b>68%</b></div><div class="exec-list"><div><span>Outpatient</span><b>68%</b></div><div><span>Inpatient</span><b>21%</b></div><div><span>Emergency</span><b>11%</b></div><div><span>Change vs prior</span><b>+4.6%</b></div></div></div></div>
+</section>
+<section class="section" id="quality">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">Data quality engine</div><h2>Before the dashboard, trust the data.</h2></div><p>Data analysts routinely profile and reconcile source data before publishing a KPI, report or model input.</p></div>
+  <div class="quality-layout reveal">
+    <div class="quality-card">
+      <div class="quality-top"><div><span class="kicker">Quality scan</span><h3 id="qualityScore">READY</h3></div><button type="button" class="run" id="scanQuality">Run quality checks</button></div>
+      <p id="qualityStatus">Checks: completeness · duplicates · ranges · reconciliation</p>
+      <div class="quality-checks"><span>Null / completeness</span><span>Duplicate records</span><span>Range / outliers</span><span>Source reconciliation</span></div>
+    </div>
+    <div class="resultbox">
+      <table class="table"><thead><tr><th>Check</th><th>Purpose</th><th>Status</th></tr></thead><tbody id="qualityRows">
+        <tr><td>Completeness</td><td>Find missing required fields</td><td>Ready</td></tr>
+        <tr><td>Duplicates</td><td>Protect row-level uniqueness</td><td>Ready</td></tr>
+        <tr><td>Ranges</td><td>Catch impossible or unusual values</td><td>Ready</td></tr>
+        <tr><td>Reconciliation</td><td>Compare totals to the source</td><td>Ready</td></tr>
+      </tbody></table>
+    </div>
+  </div>
 </div>
-<div class="exec-bottom">
-<div class="exec-panel"><div class="exec-panel-head"><div><h3>Top service categories</h3><span>Share of allowed amount</span></div></div><div class="exec-hbars"><div class="exec-hbar"><label><span>Specialist</span><b>82%</b></label><div class="exec-track"><i style="width:82%"></i></div></div><div class="exec-hbar"><label><span>Primary care</span><b>67%</b></label><div class="exec-track"><i style="width:67%"></i></div></div><div class="exec-hbar"><label><span>Pharmacy</span><b>54%</b></label><div class="exec-track"><i style="width:54%"></i></div></div><div class="exec-hbar"><label><span>Emergency</span><b>39%</b></label><div class="exec-track"><i style="width:39%"></i></div></div></div></div>
-<div class="exec-panel"><div class="exec-panel-head"><div><h3>Data quality monitor</h3><span>Validation results</span></div></div><div class="exec-list"><div><span>Completeness</span><b>98.2%</b></div><div><span>Duplicate check</span><b>99.1%</b></div><div><span>Range validation</span><b>95.8%</b></div><div><span>Reconciliation</span><b>92.6%</b></div></div><div style="margin-top:16px;font-size:8px;color:#f2c94c">37 exceptions routed to review queue</div></div>
-<div class="exec-panel"><div class="exec-panel-head"><div><h3>Exception queue</h3><span>Priority review</span></div><span>37 OPEN</span></div><table class="exec-table"><thead><tr><th>Issue</th><th>Count</th><th>Status</th></tr></thead><tbody><tr><td>Outlier cost</td><td>14</td><td class="badge-risk">Review</td></tr><tr><td>Missing provider</td><td>9</td><td class="badge-risk">Review</td></tr><tr><td>Duplicate claim</td><td>8</td><td class="badge-ok">Resolved</td></tr><tr><td>Rule mismatch</td><td>6</td><td class="badge-risk">Review</td></tr></tbody></table></div>
-</div><div class="exec-foot"><span>● Synthetic data · portfolio demonstration only</span><span>SQL · Python · Power BI · Data Quality · KPI Analysis</span></div>
-</div></div></section>ead><tr><th>Check</th><th>Issues</th><th>Status</th></tr></thead><tbody id="qualityRows"><tr><td>Awaiting scan</td><td>—</td><td>Pending</td></tr></tbody></table></div></div></div></section>
+</section>
+<section class="section public-case" id="public-data">
+<div class="container">
+  <div class="section-head reveal">
+    <div><div class="kicker">Public data case study · no fabricated metrics</div><h2>Real data. Real analyst workflow.</h2></div>
+    <p>Instead of inventing business numbers for the portfolio, this case study uses a public NYC Open Data source that anyone can inspect and reproduce.</p>
+  </div>
+  <div class="public-case-grid reveal">
+    <div class="public-intro">
+      <div class="source-badge">NYC OPEN DATA</div>
+      <h3>311 Service Requests</h3>
+      <p>The dataset contains service-request records with fields such as created date, closed date, agency, problem type, status and location. NYC Open Data says the dataset is updated daily and does not expose personally identifying information about the customer.</p>
+      <a class="btn primary" href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9" target="_blank" rel="noopener">Inspect the public dataset ↗</a>
+    </div>
+    <div class="public-work">
+      <div class="public-row"><span>BUSINESS QUESTION</span><b>Which request patterns and response-time differences matter to operations?</b></div>
+      <div class="public-row"><span>DATA PREP</span><b>Profile nulls, standardize categories, validate dates, remove duplicates and derive resolution time.</b></div>
+      <div class="public-row"><span>SQL / PYTHON</span><b>Group by agency, problem type, time period and location to identify recurring patterns and exceptions.</b></div>
+      <div class="public-row"><span>BI OUTPUT</span><b>Build a dashboard with volume, response-time distribution, category mix and filters for decision-makers.</b></div>
+      <div class="public-row"><span>FINAL DELIVERABLE</span><b>One concise story: what changed, where it happened, why it matters and what should be investigated next.</b></div>
+    </div>
+  </div>
+  <div class="public-footer reveal"><span>Skills demonstrated: SQL · Python · Pandas · EDA · Data Quality · Power BI / Tableau · Business Storytelling</span><a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9" target="_blank" rel="noopener">Source: NYC Open Data ↗</a></div>
+</div>
+</section>ead><tr><th>Check</th><th>Issues</th><th>Status</th></tr></thead><tbody id="qualityRows"><tr><td>Awaiting scan</td><td>—</td><td>Pending</td></tr></tbody></table></div></div></div></section>
 <section class="section" id="ai"><div class="container"><div class="section-head reveal"><div><div class="kicker">Signature workflow</div><h2>How I validate AI.</h2></div><p>AI can generate a useful answer. The analytical workflow decides whether that answer should be trusted.</p></div><div class="recruit reveal" style="background:var(--navy)"><div class="recruitgrid"><div><div class="kicker">InsightGuard · independent portfolio simulation</div><h2>Generate.<br>Verify.<br>Decide.</h2><p>Ask a business question. The simulator produces an illustrative LLM response, then sends it through SQL/source-data checks and business-rule validation before showing a final status.</p><div class="ai-question"><input id="aiQuestion" placeholder="Ask a business question, e.g. Which utilization pattern needs review?" autocomplete="off"><button class="run" id="runAI">Validate →</button></div><div class="actions"><button class="btn secondary" id="resetAI" style="color:white;border-color:white">Reset workflow</button></div></div><div id="aiFlow"><div class="pipeline"><div class="pipe"><b>USER QUESTION</b><span>awaiting input</span></div><div class="pipe"><b>LLM RESPONSE</b><span>not run</span></div><div class="pipe"><b>SQL / SOURCE CHECK</b><span>not run</span></div><div class="pipe"><b>BUSINESS RULES</b><span>not run</span></div><div class="pipe"><b>FINAL DECISION</b><span>not run</span></div></div></div></div></div></div></section>
 <section class="section dark"><div class="container"><div class="section-head reveal"><div><div class="kicker">Developer mode</div><h2>Open the terminal.</h2></div><p>A small command-line layer for recruiters and technical reviewers who want a different way to navigate the portfolio.</p></div><div class="terminal reveal"><div class="termhead"><i></i><i></i><i></i><span>vamshi@intelligence:~</span></div><div class="termbody" id="termBody"><div>Vamshi Intelligence Terminal v1.0</div><div>Type <b>help</b> to see available commands.</div><br><div><span class="termline">vamshi@portfolio:~$</span> <input id="termInput" placeholder="help" autocomplete="off"></div></div></div></div></section>
-<section class="section" id="dashboard"><div class="container"><div class="section-head reveal"><div><div class="kicker">Independent portfolio simulation · synthetic data</div><h2>Executive Analytics Dashboard.</h2></div><p>A fictional business dashboard designed to demonstrate how I turn raw operational data into KPI trends, anomaly signals and stakeholder-ready insights. This is not employer data.</p></div><div class="exec-dash reveal"><div class="dash-card"><span class="dash-tag">ANALYTICS OVERVIEW · Q4 SIMULATION</span><div class="dash-kpis"><div class="dash-kpi"><b>96.4%</b><span>Data quality</span></div><div class="dash-kpi"><b>18.7K</b><span>Records processed</span></div><div class="dash-kpi"><b>+14.2%</b><span>Trend signal</span></div><div class="dash-kpi"><b>37</b><span>Exceptions</span></div></div><div class="dash-chart"><div class="dash-bars"><i style="--h:42%"></i><i style="--h:57%"></i><i style="--h:49%"></i><i style="--h:68%"></i><i style="--h:63%"></i><i style="--h:78%"></i><i style="--h:72%"></i><i style="--h:91%"></i><i style="--h:84%"></i><i style="--h:96%"></i></div><div class="dash-axis"><span>JAN</span><span>APR</span><span>JUL</span><span>OCT</span><span>DEC</span></div></div></div><div class="dash-card"><span class="dash-tag">INSIGHT QUEUE</span><div class="dash-insights"><div class="dash-insight"><b>Utilization increased</b><span>Pattern detected across the synthetic monthly activity series.</span></div><div class="dash-insight"><b>Quality exceptions clustered</b><span>Outlier review should precede downstream KPI publication.</span></div><div class="dash-insight"><b>AI output requires grounding</b><span>Generated summaries are routed through source-data and rule checks.</span></div><div class="dash-insight"><b>Recommended action</b><span>Prioritize exception review, then refresh stakeholder reporting.</span></div></div></div></div></div></section><section class="section dark" id="cyber"><div class="container"><div class="section-head reveal"><div><div class="kicker">Security intelligence · built project</div><h2>AI Intrusion Detection & Response.</h2></div><p>A portfolio view of my real IDRS capstone architecture, paired with a clearly labeled synthetic SOC dashboard. Dashboard telemetry is illustrative; the architecture and capabilities are based on the project repository.</p></div><div class="cyber-dashboard reveal"><div class="cyber-panel hero-panel"><div class="cyber-label">IDRS · REAL PROJECT / SYNTHETIC TELEMETRY</div><div class="threat-ring"><div class="threat-core"><b>72%</b><span>RISK FUSION</span></div></div><div class="threat-grid"><div class="threat-stat"><b>12+</b><span>Model signals</span></div><div class="threat-stat"><b>55/30/15</b><span>Fusion weights</span></div><div class="threat-stat"><b>FAISS</b><span>Pattern memory</span></div></div></div><div class="cyber-panel"><div class="cyber-label">THREAT SIGNALS</div><div class="signal-list"><div class="signal-row"><span>Supervised ensemble</span><b>55%</b><div class="signal-bar"><i style="width:88%"></i></div></div><div class="signal-row"><span>Unsupervised anomaly</span><b>30%</b><div class="signal-bar"><i style="width:61%"></i></div></div><div class="signal-row"><span>Deep learning</span><b>15%</b><div class="signal-bar"><i style="width:42%"></i></div></div><div class="signal-row"><span>Semantic pattern match</span><b>BOOST</b><div class="signal-bar"><i style="width:74%"></i></div></div></div><div style="margin-top:18px;color:#9fb0c8;font-size:9px;line-height:1.6">Detection → risk fusion → explainability → automated response → LLM threat analysis.</div><div class="actions" style="margin-top:15px"><a class="btn primary" href="https://github.com/Vamshikeerthi24/AI-Based-Intrusion-Detection-and-Cybersecurity-Threat-Detection-and-Response-System" target="_blank">View source ↗</a><a class="btn secondary" style="color:white;border-color:white" href="https://github.com/Vamshikeerthi24/AI-Based-Intrusion-Detection-and-Cybersecurity-Threat-Detection-and-Response-System/blob/main/README.md" target="_blank">Architecture ↗</a></div></div></div></div></section>
+<section class="section dark" id="cyber"><div class="container"><div class="section-head reveal"><div><div class="kicker">Security intelligence · built project</div><h2>AI Intrusion Detection & Response.</h2></div><p>A portfolio view of my real IDRS capstone architecture, paired with a clearly labeled synthetic SOC dashboard. Dashboard telemetry is illustrative; the architecture and capabilities are based on the project repository.</p></div><div class="cyber-dashboard reveal"><div class="cyber-panel hero-panel"><div class="cyber-label">IDRS · REAL PROJECT / SYNTHETIC TELEMETRY</div><div class="threat-ring"><div class="threat-core"><b>72%</b><span>RISK FUSION</span></div></div><div class="threat-grid"><div class="threat-stat"><b>12+</b><span>Model signals</span></div><div class="threat-stat"><b>55/30/15</b><span>Fusion weights</span></div><div class="threat-stat"><b>FAISS</b><span>Pattern memory</span></div></div></div><div class="cyber-panel"><div class="cyber-label">THREAT SIGNALS</div><div class="signal-list"><div class="signal-row"><span>Supervised ensemble</span><b>55%</b><div class="signal-bar"><i style="width:88%"></i></div></div><div class="signal-row"><span>Unsupervised anomaly</span><b>30%</b><div class="signal-bar"><i style="width:61%"></i></div></div><div class="signal-row"><span>Deep learning</span><b>15%</b><div class="signal-bar"><i style="width:42%"></i></div></div><div class="signal-row"><span>Semantic pattern match</span><b>BOOST</b><div class="signal-bar"><i style="width:74%"></i></div></div></div><div style="margin-top:18px;color:#9fb0c8;font-size:9px;line-height:1.6">Detection → risk fusion → explainability → automated response → LLM threat analysis.</div><div class="actions" style="margin-top:15px"><a class="btn primary" href="https://github.com/Vamshikeerthi24/AI-Based-Intrusion-Detection-and-Cybersecurity-Threat-Detection-and-Response-System" target="_blank">View source ↗</a><a class="btn secondary" style="color:white;border-color:white" href="https://github.com/Vamshikeerthi24/AI-Based-Intrusion-Detection-and-Cybersecurity-Threat-Detection-and-Response-System/blob/main/README.md" target="_blank">Architecture ↗</a></div></div></div></div></section>
 <section class="section dark" id="evidence"><div class="container">
 <div class="section-head reveal"><div><div class="kicker">Repository-backed evidence</div><h2>Real work. Visible artifacts.</h2></div><p>Selected evidence from the projects behind this portfolio. The IDRS visuals below are repository artifacts; dashboard telemetry shown elsewhere is explicitly labeled synthetic.</p></div>
 <div class="evidence-wrap">
@@ -317,6 +452,27 @@ function bindTerm(){const x=$('#termInput');if(x)x.addEventListener('keydown',e=
  document.querySelectorAll('.motion-dot').forEach(b=>b.addEventListener('click',()=>setStage(+b.dataset.step)));
  const sec=document.getElementById('motion');let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){setStage((Math.floor(performance.now()/4500))%7)}}),{threshold:.35});if(sec)io.observe(sec);
  window.addEventListener('resize',resize);resize();setStage(0);draw();
+})();
+
+(function(){
+ const steps=[
+  ['01 · FRAME','Start with the business question.','An analyst does not start with a chart. First define the decision the analysis needs to support, who will use it, and what “useful” looks like.','Question · scope · KPI definitions · success criteria',['Business context','Stakeholder goals','KPI definitions']],
+  ['02 · UNDERSTAND','Understand the data before using it.','Inspect the table grain, fields, dates, categories, missingness and source definitions. Know what one row represents before calculating anything.','Data dictionary · profiling notes · source map',['SQL','Data profiling','Data dictionary']],
+  ['03 · CLEAN','Make the data analysis-ready.','Standardize categories, handle missing values, validate dates, check duplicates and create derived fields such as resolution time.','Clean dataset · transformation rules · quality checks',['Python','Pandas','Data quality']],
+  ['04 · ANALYZE','Turn records into evidence.','Use SQL and Python to aggregate, segment, compare periods, identify outliers and test whether a pattern is worth investigating.','Queries · exploratory analysis · pattern findings',['SQL','Python','EDA']],
+  ['05 · VISUALIZE','Make the pattern understandable.','Choose the right chart, KPI and filters. A dashboard should answer the business question quickly rather than display every available field.','Power BI / Tableau dashboard · KPI layer',['Power BI','Tableau','Data visualization']],
+  ['06 · RECOMMEND','Explain what the evidence means.','Close the loop: summarize the finding, state the limitation, identify the next investigation and give the stakeholder a clear action path.','Executive summary · recommendation · next step',['Storytelling','Business communication','Decision support']]
+ ];
+ const buttons=document.querySelectorAll('.workflow-step');
+ const idx=document.getElementById('workflowIndex'),title=document.getElementById('workflowTitle'),text=document.getElementById('workflowText'),artifact=document.getElementById('workflowArtifact'),stack=document.getElementById('workflowStack');
+ function setWorkflow(n){
+   const s=steps[n]||steps[0];
+   buttons.forEach((b,i)=>b.classList.toggle('active',i===n));
+   if(idx)idx.textContent=s[0]; if(title)title.textContent=s[1]; if(text)text.textContent=s[2]; if(artifact)artifact.textContent=s[3];
+   if(stack)stack.innerHTML=s[4].map(x=>'<span>'+x+'</span>').join('');
+ }
+ buttons.forEach(b=>b.addEventListener('click',()=>setWorkflow(Number(b.dataset.workflowStep))));
+ setWorkflow(0);
 })();
 </script>
 </body>
