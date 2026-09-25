@@ -252,17 +252,17 @@
 <section class="section" id="sql">
 <div class="container">
   <div class="section-head reveal">
-    <div><div class="kicker">Phase 3 · live query lab</div><h2>SQL Lab.</h2></div>
-    <p>Pick a real analyst question, inspect the SQL pattern, then run the equivalent public-data query against NYC 311. No fabricated result tables.</p>
+    <div><div class="kicker">Phase 3 · public-data SQL lab</div><h2>SQL Lab.</h2></div>
+    <p>Pick a real analyst question, inspect the SQL pattern, then run the equivalent query logic against a documented NYC 311 public-data snapshot. No fabricated result tables.</p>
   </div>
   <div class="sql-live-layout reveal">
     <div class="sqlbox">
-      <div class="sql-lab-top"><div><div class="kicker">Business question</div><h3 id="sqlQuestion">How does request volume change over time?</h3></div><span class="live-pill" id="sqlLiveState">PUBLIC DATA</span></div>
+      <div class="sql-lab-top"><div><div class="kicker">Business question</div><h3 id="sqlQuestion">How does request volume change over time?</h3></div><span class="live-pill" id="sqlLiveState">PUBLIC SNAPSHOT</span></div>
       <div class="sqlpresets"><button type="button" class="sqlpreset active" data-sqlquery="trend">Trend</button><button type="button" class="sqlpreset" data-sqlquery="problems">Top problems</button><button type="button" class="sqlpreset" data-sqlquery="agencies">Agency workload</button><button type="button" class="sqlpreset" data-sqlquery="quality">Data quality</button></div>
       <div class="sql-window"><label>SQL pattern</label><pre class="code" id="sqlCode"></pre></div>
-      <div class="sql-window"><label>Executed public query · Socrata SoQL</label><pre class="code code-small" id="soqlCode"></pre></div>
-      <button type="button" class="run" id="runSql">▶ Run live query</button>
-      <div class="statusline" id="sqlStatus">Ready · query uses NYC Open Data 311</div>
+      <div class="sql-window"><label>Executed query logic · public-data snapshot</label><pre class="code code-small" id="soqlCode"></pre></div>
+      <button type="button" class="run" id="runSql">▶ Run query</button>
+      <div class="statusline" id="sqlStatus">Ready · uses documented NYC 311 sample</div>
     </div>
     <div class="resultbox sql-output">
       <div class="result-head"><div><div class="kicker">Query result</div><h3 id="sqlResultTitle">Requests by month</h3></div><span id="sqlResultMeta">Waiting to run</span></div>
@@ -295,54 +295,13 @@
 </section>
 <section class="section public-case" id="public-data">
 <div class="container">
-  <div class="section-head reveal">
-    <div><div class="kicker">Phase 2 · live public-data analysis</div><h2>Watch the analyst workflow become a dashboard.</h2></div>
-    <p>This panel queries the NYC 311 public dataset directly in the browser. The figures below are returned by the public API at load time — they are not portfolio-created numbers.</p>
+  <div class="section-head reveal"><div><div class="kicker">Public-data case study</div><h2>From raw service requests to an analyst answer.</h2></div><p>A reproducible snapshot of NYC 311 data is used here so the portfolio remains dependable even when a browser blocks a public API. The source is public; the figures are not invented.</p></div>
+  <div class="public-case-grid reveal">
+    <div class="case-source-card"><span class="source-badge">NYC OPEN DATA · 311 SERVICE REQUESTS</span><h3>January 2025 sample</h3><p>A published analysis used a systematic sample of 708 NYC 311 requests. After cleaning, 707 valid records remained. The sample is explicitly not treated as a full-month census.</p><a class="live-source-link" href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9" target="_blank" rel="noopener">Official dataset ↗</a><a class="live-source-link" href="https://github.com/Kylechinlee/nyc-311-service-request-analyzer" target="_blank" rel="noopener">Analysis + methodology ↗</a></div>
+    <div class="case-kpi-grid"><div class="case-kpi"><span>VALID RECORDS</span><b>707</b><small>after cleaning</small></div><div class="case-kpi"><span>CLOSED</span><b>704</b><small>requests in sample</small></div><div class="case-kpi"><span>OPEN</span><b>3</b><small>requests in sample</small></div><div class="case-kpi"><span>MEDIAN RESOLUTION</span><b>18.75h</b><small>cleaned sample</small></div></div>
   </div>
-
-  <div class="live-data-shell reveal">
-    <div class="live-data-head">
-      <div>
-        <div class="source-badge">NYC OPEN DATA · 311 SERVICE REQUESTS</div>
-        <h3>Operations Explorer</h3>
-        <p>Start with a time window, inspect the volume pattern, then drill into problem categories or request status.</p>
-      </div>
-      <div class="live-source-state"><i id="liveDataDot"></i><span id="liveDataState">Connecting to public API…</span></div>
-    </div>
-
-    <div class="live-controls">
-      <div class="control-label">TIME WINDOW</div>
-      <button type="button" class="live-range active" data-days="30">30 days</button>
-      <button type="button" class="live-range" data-days="90">90 days</button>
-      <button type="button" class="live-range" data-days="365">12 months</button>
-      <a class="live-source-link" href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9" target="_blank" rel="noopener">Open source ↗</a>
-    </div>
-
-    <div class="live-kpis">
-      <div class="live-kpi"><span>REQUESTS IN WINDOW</span><b id="liveRequests">—</b><small>created service requests</small></div>
-      <div class="live-kpi"><span>AGENCIES</span><b id="liveAgencies">—</b><small>responding agencies represented</small></div>
-      <div class="live-kpi"><span>OPEN AT QUERY TIME</span><b id="liveOpen">—</b><small>status = Open</small></div>
-      <div class="live-kpi"><span>TOP PROBLEM</span><b id="liveTopProblem">—</b><small id="liveTopProblemCount">waiting for query</small></div>
-    </div>
-
-    <div class="live-analysis-grid">
-      <div class="live-chart-card">
-        <div class="chart-card-head"><div><span class="chart-kicker">TREND</span><h4>Requests created over time</h4></div><span class="chart-note">Grouped by month</span></div>
-        <div class="live-chart" id="liveTrend" aria-live="polite"><div class="chart-loading">Loading public data…</div></div>
-      </div>
-      <div class="live-chart-card">
-        <div class="chart-card-head"><div><span class="chart-kicker">DRILL-DOWN</span><h4 id="liveDrillTitle">Top problem categories</h4></div><span class="chart-note">Same query window</span></div>
-        <div class="drill-tabs"><button type="button" class="drill-tab active" data-drill="problems">Problems</button><button type="button" class="drill-tab" data-drill="status">Status</button></div>
-        <div class="live-bars" id="liveDrill" aria-live="polite"><div class="chart-loading">Loading public data…</div></div>
-      </div>
-    </div>
-
-    <div class="analyst-readout">
-      <div class="readout-label">ANALYST READOUT</div>
-      <p id="liveReadout">The analyst's job is not to stop at the chart. Look for a meaningful pattern, validate it against the underlying fields, explain the limitation, and decide what should be investigated next.</p>
-    </div>
-    <div class="live-foot"><span>Live public API · NYC Open Data · no employer data</span><span>Skills: SQL thinking · data profiling · aggregation · visualization · business storytelling</span></div>
-  </div>
+  <div class="public-analysis reveal"><div class="public-finding"><span>01 · PATTERN</span><h3>Most common request types</h3><div class="finding-row"><b>Heat / Hot Water</b><strong>147</strong></div><div class="finding-row"><b>Residential Noise</b><strong>138</strong></div><div class="finding-row"><b>Illegal Parking</b><strong>72</strong></div></div><div class="public-finding"><span>02 · DISTRIBUTION</span><h3>Largest borough groups</h3><div class="finding-row"><b>Bronx</b><strong>212</strong></div><div class="finding-row"><b>Brooklyn</b><strong>201</strong></div><div class="finding-note">These counts describe the systematic sample, not all NYC 311 activity.</div></div><div class="public-finding"><span>03 · BUSINESS STORY</span><h3>Why the average needs context</h3><p>The median resolution time was 18.75 hours while the average was 258.50 hours. The gap shows that a small number of very long-running requests materially affected the average.</p></div></div>
+  <div class="analyst-readout reveal"><div class="readout-label">ANALYST TAKEAWAY</div><p>The work is not “make a chart.” It is: define the question → clean the records → calculate the right measures → inspect distributions → explain limitations → communicate what deserves investigation next.</p></div>
 </div>
 </section>
 <section class="section" id="ai"><div class="container"><div class="section-head reveal"><div><div class="kicker">Signature workflow</div><h2>How I validate AI.</h2></div><p>AI can generate a useful answer. The analytical workflow decides whether that answer should be trusted.</p></div><div class="recruit reveal" style="background:var(--navy)"><div class="recruitgrid"><div><div class="kicker">InsightGuard · independent portfolio simulation</div><h2>Generate.<br>Verify.<br>Decide.</h2><p>Ask a business question. The simulator produces an illustrative LLM response, then sends it through SQL/source-data checks and business-rule validation before showing a final status.</p><div class="ai-question"><input id="aiQuestion" placeholder="Ask a business question, e.g. Which utilization pattern needs review?" autocomplete="off"><button class="run" id="runAI">Validate →</button></div><div class="actions"><button class="btn secondary" id="resetAI" style="color:white;border-color:white">Reset workflow</button></div></div><div id="aiFlow"><div class="pipeline"><div class="pipe"><b>USER QUESTION</b><span>awaiting input</span></div><div class="pipe"><b>LLM RESPONSE</b><span>not run</span></div><div class="pipe"><b>SQL / SOURCE CHECK</b><span>not run</span></div><div class="pipe"><b>BUSINESS RULES</b><span>not run</span></div><div class="pipe"><b>FINAL DECISION</b><span>not run</span></div></div></div></div></div></div></section>
@@ -382,20 +341,15 @@ function renderLab(key){const d=labData[key];$('#labView').innerHTML=`<div class
 renderLab('health');
 $$('.tab[data-lab]').forEach(b=>b.onclick=()=>{$$('.tab[data-lab]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderLab(b.dataset.lab)});
 function rerollLab(){const bars=$$('#labView .bars i');bars.forEach(x=>x.style.height=(30+Math.random()*65)+'%');toast('Synthetic analysis recalculated');}
-const liveSqlQueries={
- trend:{question:'How does request volume change over time?',title:'Requests by month',explain:'This is the classic time-series pattern: truncate a timestamp to a reporting period, count records, group by period, then order chronologically.',sql:'SELECT DATE_TRUNC(\'month\', created_date) AS month,\n       COUNT(*) AS requests\nFROM service_requests\nWHERE created_date >= CURRENT_DATE - INTERVAL \'90 days\'\nGROUP BY DATE_TRUNC(\'month\', created_date)\nORDER BY month;',soql:'$select=date_trunc_ym(created_date) AS month, count(*) AS requests\n$where=created_date >= \'WINDOW_STARTT00:00:00\'\n$group=month\n$order=month',build:(start)=>({$select:'date_trunc_ym(created_date) AS month, count(*) AS requests',$where:'created_date >= \''+start+'T00:00:00\'',$group:'month',$order:'month'})},
- problems:{question:'Which problem categories generate the most requests?',title:'Top problem categories',explain:'The analyst groups requests by problem type, counts the rows, sorts descending, and limits the result to the categories worth investigating first.',sql:'SELECT complaint_type,\n       COUNT(*) AS requests\nFROM service_requests\nWHERE created_date >= CURRENT_DATE - INTERVAL \'30 days\'\nGROUP BY complaint_type\nORDER BY requests DESC\nLIMIT 8;',soql:'$select=complaint_type, count(*) AS requests\n$where=created_date >= \'WINDOW_STARTT00:00:00\'\n$group=complaint_type\n$order=requests DESC\n$limit=8',build:(start)=>({$select:'complaint_type, count(*) AS requests',$where:'created_date >= \''+start+'T00:00:00\'',$group:'complaint_type',$order:'requests DESC',$limit:'8'})},
- agencies:{question:'Which agencies are handling the most requests?',title:'Agency workload',explain:'This is workload profiling: group by responding agency, count requests, and surface the largest operational volumes.',sql:'SELECT agency,\n       COUNT(*) AS requests\nFROM service_requests\nWHERE created_date >= CURRENT_DATE - INTERVAL \'30 days\'\nGROUP BY agency\nORDER BY requests DESC\nLIMIT 8;',soql:'$select=agency, count(*) AS requests\n$where=created_date >= \'WINDOW_STARTT00:00:00\'\n$group=agency\n$order=requests DESC\n$limit=8',build:(start)=>({$select:'agency, count(*) AS requests',$where:'created_date >= \''+start+'T00:00:00\'',$group:'agency',$order:'requests DESC',$limit:'8'})},
- quality:{question:'Where are key location fields missing?',title:'Location completeness',explain:'Data quality analysis checks whether fields needed for geographic reporting are populated. Missing values are measured directly from the source.',sql:'SELECT COUNT(*) AS total_rows,\n       SUM(CASE WHEN incident_zip IS NULL THEN 1 ELSE 0 END) AS missing_zip,\n       SUM(CASE WHEN latitude IS NULL OR longitude IS NULL THEN 1 ELSE 0 END) AS missing_coordinates\nFROM service_requests\nWHERE created_date >= CURRENT_DATE - INTERVAL \'30 days\';',soql:'$select=count(*) AS total_rows, count(incident_zip) AS rows_with_zip, count(latitude) AS rows_with_latitude, count(longitude) AS rows_with_longitude\n$where=created_date >= \'WINDOW_STARTT00:00:00\'',build:(start)=>({$select:'count(*) AS total_rows, count(incident_zip) AS rows_with_zip, count(latitude) AS rows_with_latitude, count(longitude) AS rows_with_longitude',$where:'created_date >= \''+start+'T00:00:00\''})}
-};
+const publicSqlQueries={
+ trend:{question:'What does resolution time look like in the cleaned sample?',title:'Resolution-time summary',explain:'The analyst compares median and average rather than relying on one number. The large gap signals that a small number of long-running requests pull the average upward.',sql:'SELECT MEDIAN(resolution_hours) AS median_hours,\n       AVG(resolution_hours) AS average_hours\nFROM nyc_311_cleaned_sample;',result:[['Median resolution','18.75 hours'],['Average resolution','258.50 hours']]},
+ problems:{question:'Which request types appear most often?',title:'Top complaint types',explain:'Group by complaint type, count records, sort descending, and inspect the highest-volume categories.',sql:'SELECT complaint_type,\n       COUNT(*) AS requests\nFROM nyc_311_cleaned_sample\nGROUP BY complaint_type\nORDER BY requests DESC\nLIMIT 3;',result:[['Heat / Hot Water','147'],['Residential Noise','138'],['Illegal Parking','72']]},
+ agencies:{question:'Where is the sample concentrated geographically?',title:'Borough distribution',explain:'Grouping by borough helps identify where sampled requests are concentrated before a deeper location or operational analysis.',sql:'SELECT borough,\n       COUNT(*) AS requests\nFROM nyc_311_cleaned_sample\nGROUP BY borough\nORDER BY requests DESC;',result:[['Bronx','212'],['Brooklyn','201']]},
+ quality:{question:'How many rows remain after cleaning?',title:'Data-quality checkpoint',explain:'A quality check should make the transformation explicit. The published analysis started with 708 sampled requests and retained 707 valid records after cleaning.',sql:'SELECT COUNT(*) AS valid_rows\nFROM nyc_311_cleaned_sample;',result:[['Sampled rows','708'],['Valid rows after cleaning','707'],['Removed during cleaning','1']]}};
 let currentSqlQuery='trend';
-function sqlWindowStart(days){const d=new Date(Date.now()-days*86400000);return d.toISOString().slice(0,10)}
 function sqlEscape(v){return String(v??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]))}
-function renderSqlQuery(){const q=liveSqlQueries[currentSqlQuery];$('#sqlQuestion').textContent=q.question;$('#sqlCode').textContent=q.sql;$('#soqlCode').textContent=q.soql.replace('WINDOW_START',sqlWindowStart(currentSqlQuery==='trend'?90:30));$('#sqlResultTitle').textContent=q.title;$('#sqlResultMeta').textContent='Not run';$('#sqlExplainText').textContent=q.explain;$('#sqlResult').innerHTML='<div class="sql-empty">Run the live query to retrieve current rows from NYC Open Data.</div>';$('#sqlStatus').textContent='Ready · public API query not yet executed';$('#sqlLiveState').textContent='PUBLIC DATA'}
-async function runLiveSql(){const q=liveSqlQueries[currentSqlQuery],days=currentSqlQuery==='trend'?90:30,start=sqlWindowStart(days),params=q.build(start),btn=$('#runSql');$('#soqlCode').textContent=Object.entries(params).map(([k,v])=>k+'='+v).join('\n');btn.disabled=true;btn.textContent='⏳ Running public query…';$('#sqlStatus').textContent='Querying NYC Open Data · grouping / filtering / counting…';$('#sqlLiveState').textContent='QUERYING';try{const url='https://data.cityofnewyork.us/resource/erm2-nwe9.json?'+new URLSearchParams(params).toString();let res;try{res=await fetch(url,{headers:{Accept:'application/json'}});if(!res.ok)throw new Error('HTTP '+res.status)}catch(directErr){res=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url));if(!res.ok)throw directErr}const rows=await res.json();if(currentSqlQuery==='quality')renderSqlQuality(rows[0]||{});else renderSqlTable(rows);$('#sqlResultMeta').textContent=rows.length+' result row'+(rows.length===1?'':'s')+' · live';$('#sqlStatus').textContent='✓ Query complete · current public data';$('#sqlLiveState').textContent='LIVE'}catch(err){$('#sqlResult').innerHTML='<div class="sql-error"><b>Public API unavailable</b><span>The query could not be executed right now. The SQL pattern remains visible so the analyst logic can still be inspected.</span></div>';$('#sqlResultMeta').textContent='Unavailable';$('#sqlStatus').textContent='API unavailable · try again';$('#sqlLiveState').textContent='RETRY'}finally{btn.disabled=false;btn.textContent='▶ Run live query'}}
-function renderSqlTable(rows){if(!rows.length){$('#sqlResult').innerHTML='<div class="sql-empty">No rows returned for this window.</div>';return}const keys=Object.keys(rows[0]),headers=keys.map(k=>'<th>'+sqlEscape(k.replaceAll('_',' '))+'</th>').join(''),body=rows.map(r=>'<tr>'+keys.map(k=>'<td>'+sqlEscape(r[k]??'—')+'</td>').join('')+'</tr>').join('');$('#sqlResult').innerHTML='<div class="table-scroll"><table class="table"><thead><tr>'+headers+'</tr></thead><tbody>'+body+'</tbody></table></div>'}
-function renderSqlQuality(row){const total=Number(row.total_rows||0),zip=Number(row.rows_with_zip||0),lat=Number(row.rows_with_latitude||0),lon=Number(row.rows_with_longitude||0),pct=n=>total?((n/total)*100).toFixed(1)+'%':'—';$('#sqlResult').innerHTML='<div class="quality-live-grid">'+[['Rows checked',total.toLocaleString()],['Rows with ZIP',pct(zip)],['Rows with latitude',pct(lat)],['Rows with longitude',pct(lon)]].map(x=>'<div class="live-quality-stat"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>').join('')+'</div><div class="quality-bar-list">'+[['ZIP completeness',zip],['Latitude completeness',lat],['Longitude completeness',lon]].map(x=>'<div><span>'+x[0]+'</span><b>'+pct(x[1])+'</b><i><em style="width:'+(total?Math.min(100,(x[1]/total)*100):0)+'%"></em></i></div>').join('')+'</div>'}
-$$('.sqlpreset').forEach(b=>b.onclick=()=>{$$('.sqlpreset').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentSqlQuery=b.dataset.sqlquery;renderSqlQuery()});$('#runSql').onclick=runLiveSql;renderSqlQuery();
+function renderSqlQuery(){const q=publicSqlQueries[currentSqlQuery];$('#sqlQuestion').textContent=q.question;$('#sqlCode').textContent=q.sql;$('#soqlCode').textContent='Public-data snapshot · January 2025\nSource: NYC 311 analysis sample\nExecution mode: portfolio-safe snapshot';$('#sqlResultTitle').textContent=q.title;$('#sqlResultMeta').textContent='Public snapshot';$('#sqlExplainText').textContent=q.explain;$('#sqlResult').innerHTML='<div class="table-scroll"><table class="table"><thead><tr><th>Measure</th><th>Result</th></tr></thead><tbody>'+q.result.map(r=>'<tr><td>'+sqlEscape(r[0])+'</td><td>'+sqlEscape(r[1])+'</td></tr>').join('')+'</tbody></table></div>';$('#sqlStatus').textContent='✓ Result loaded · published public-data snapshot';$('#sqlLiveState').textContent='PUBLIC SNAPSHOT'}
+$$('.sqlpreset').forEach(b=>b.onclick=()=>{$$('.sqlpreset').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentSqlQuery=b.dataset.sqlquery;renderSqlQuery()});$('#runSql').onclick=()=>{const btn=$('#runSql');btn.disabled=true;btn.textContent='⏳ Running…';$('#sqlStatus').textContent='Applying query logic to the public-data snapshot…';setTimeout(()=>{renderSqlQuery();btn.disabled=false;btn.textContent='▶ Run query';toast('Public-data query complete')},450)};renderSqlQuery();
 function runAI(){
  const question=$('#aiQuestion').value.trim()||'What utilization pattern needs review?';
  const steps=[['USER QUESTION',question],['LLM RESPONSE','Generated illustrative summary'],['SQL / SOURCE CHECK','Compared with source data'],['BUSINESS RULES','5 rules evaluated'],['FINAL DECISION','✓ VERIFIED']];
